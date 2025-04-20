@@ -1,0 +1,230 @@
+{
+  "main": {
+    "id": "1a86b2c1b64672e9",
+    "type": "split",
+    "children": [
+      {
+        "id": "705745ffdfc23084",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "472018be15baf9c9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "pwn/搭建记录/obsidian搭配github.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "obsidian搭配github"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "83476e88bbb6c981",
+    "type": "split",
+    "children": [
+      {
+        "id": "7e92b74a8daa73ed",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0991fae20ab6678c",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "5799f926a2463084",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "b66bebe4d874a110",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "6bebf60156636bd9",
+    "type": "split",
+    "children": [
+      {
+        "id": "ce6b23552d8ac91b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bbc533a17f6fd1fc",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "pwn/题型总结/rand与srand之随机数.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "rand与srand之随机数 的反向链接列表"
+            }
+          },
+          {
+            "id": "9b919af0bbd29eeb",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "pwn/题型总结/rand与srand之随机数.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "rand与srand之随机数 的出链列表"
+            }
+          },
+          {
+            "id": "78d4398b850e884d",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "94c426398ab83949",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "pwn/题型总结/rand与srand之随机数.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "rand与srand之随机数 的大纲"
+            }
+          },
+          {
+            "id": "8f767da519840b10",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "472018be15baf9c9",
+  "lastOpenFiles": [
+    "pwn/题型总结/rand与srand之随机数.md",
+    "pwn/题型总结/house of botcake.md",
+    "wp.py",
+    "wp 1.py",
+    "杂记/基于py的端口扫描与pyinstaller包装.md",
+    "杂记/基于airtest的自动微信抢红包实现.md",
+    "杂记",
+    "pwn/how2heap/glibc_2.23/mmap_overlapping_attack.md",
+    "pwn/how2heap/glibc_2.23/overlapping_chunk_attack.md",
+    "pwn/how2heap/glibc_2.23/large_bin_attack.md",
+    "pwn/how2heap/glibc_2.23/fastbin_dup_into_stack.md",
+    "pwn/how2heap/glibc_2.23/fastbin_dup_conslidate.md",
+    "pwn/how2heap/glibc_2.23/fastbin_dup.md",
+    "pwn/题型总结/SandBox（未）.md",
+    "pwn/题型总结/uaf  2.23-2.39（未）.md",
+    "pwn/题型总结/Ret2Libc.md",
+    "pwn/比赛复现/整数溢出.md",
+    "pwn/比赛复现/数组类.md",
+    "pwn/自动化代码/模板.md",
+    "pwn/自动化代码/stack_frame.py",
+    "pwn/比赛复现/2024 蓝桥杯 pwn.md",
+    "pwn/比赛复现/NewStarCTF 公开赛 pwn.md",
+    "pwn/比赛复现/2024 黑龙江省赛 pwn.md",
+    "pwn/比赛复现/2024 羊城杯 pwn.md",
+    "pwn/比赛复现/2024 XYCTF pwn.md",
+    "pwn/比赛复现/2024 ISCC pwn.md",
+    "pwn/比赛复现/2024 NepCTF pwn.md",
+    "pwn/比赛复现/2024 LitCTF pwn.md",
+    "pwn/比赛复现/2024 HNCTF pwn.md",
+    "pwn/how2heap/glibc_2.23",
+    "pwn/题型总结",
+    "pwn/自动化代码",
+    "pwn/比赛复现",
+    "pwn/搭建记录",
+    "pwn/学习记录",
+    "photo/Pasted image 20250420163935.png",
+    "photo/Pasted image 20250420163801.png",
+    "photo/Pasted image 20250420163321.png",
+    "photo/Pasted image 20250420163040.png",
+    "photo/Pasted image 20250420162703.png",
+    "photo/Pasted image 20250420162353.png",
+    "photo/Pasted image 20250419232924.png",
+    "photo/Pasted image 20250419232411.png",
+    "photo/Pasted image 20250419231541.png",
+    "photo/Pasted image 20250419231530.png"
+  ]
+}

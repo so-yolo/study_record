@@ -1,0 +1,178 @@
+{
+  "main": {
+    "id": "082ab8df29284502",
+    "type": "split",
+    "children": [
+      {
+        "id": "881e031170977118",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "06ed49d8003e132e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "搭建记录/WSL安装.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "WSL安装"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "496542ac48fefc2d",
+    "type": "split",
+    "children": [
+      {
+        "id": "e47d99740cfcf4f8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "39ce984620b85caf",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "c52792459832d236",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "5a465af46809a31e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "801ad27207bf259f",
+    "type": "split",
+    "children": [
+      {
+        "id": "f671bfb297f17cfe",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3ac074c46615a6fd",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "搭建记录/WSL安装.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "WSL安装 的反向链接列表"
+            }
+          },
+          {
+            "id": "9b387fad2bf2a8be",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "搭建记录/WSL安装.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "WSL安装 的出链列表"
+            }
+          },
+          {
+            "id": "d1e76b21258e8d15",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "a477c5b228196484",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "搭建记录/WSL安装.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "WSL安装 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
+    }
+  },
+  "active": "06ed49d8003e132e",
+  "lastOpenFiles": [
+    "搭建记录/pwn工具安装问题.md",
+    "搭建记录/Linux云服务器mysql密码的重置.md",
+    "搭建记录/可行的docker搭建pwn环境方法.md",
+    "搭建记录/CentOS搭建lamp中的问题解决.md"
+  ]
+}

@@ -1,0 +1,9 @@
+- Ubuntu 22.04: glibc 2.34
+- Ubuntu 20.04: glibc 2.31
+- Ubuntu 18.04: glibc 2.27
+- ubuntu 17.10 : glibc2.26 
+- ubuntu 17.04 :glibc 2.24
+- Ubuntu 16.04: glibc 2.23
+- Ubuntu 14.04: glibc 2.19
+- Ubuntu 13.04: glibc 2.17
+- Ubuntu 12.04: glibc 2.15
