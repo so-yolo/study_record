@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "pwn/题型总结/堆中house of系列漏洞成因分析.md",
+                "file": "pwn/题型总结/off by one.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "堆中house of系列漏洞成因分析"
+              "title": "off by one"
             }
           }
         ]
@@ -172,12 +172,8 @@
   },
   "active": "ac42dfcbe8479c7e",
   "lastOpenFiles": [
-<<<<<<< Updated upstream
-    "Pasted image 20250425123709.png",
-=======
-    "pwn/题型总结/off by one.md",
     "pwn/题型总结/堆中house of系列漏洞成因分析.md",
->>>>>>> Stashed changes
+    "Pasted image 20250425123709.png",
     "d5c9a906dcc374ee8dbf3dcad9e64e73.jpg",
     "Pasted image 20250424223120.png",
     "Pasted image 20250424222732.png",
@@ -187,8 +183,8 @@
     "Pasted image 20250424221618.png",
     "Pasted image 20250424221610.png",
     "Pasted image 20250424221557.png",
-    "Pasted image 20250424221550.png",
     "pwn/how2heap/glibc_2.23/overlapping_chunk_attack.md",
+    "pwn/题型总结/off by one.md",
     "pwn/题型总结/uaf  2.23-2.39（未）.md",
     "pwn/搭建记录/linux命令scp将本地文件上传到服务器.md",
     "pwn/how2heap/glibc_2.23/fastbin_dup.md",
