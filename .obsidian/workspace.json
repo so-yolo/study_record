@@ -13,13 +13,36 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "pwn/题型总结/off by one.md",
+                "file": "pwn/搭建记录/Libc-databases安装与使用.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "off by one"
-            }
+              "title": "Libc-databases安装与使用"
+            },
+            "group": "2dd81bbc7c1af8f7"
+          }
+        ]
+      },
+      {
+        "id": "50bb9c01b81c1607",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "01418e55b0d5d050",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "pwn/搭建记录/Libc-databases安装与使用.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Libc-databases安装与使用 的大纲"
+            },
+            "group": "2dd81bbc7c1af8f7"
           }
         ]
       }
@@ -172,6 +195,10 @@
   },
   "active": "ac42dfcbe8479c7e",
   "lastOpenFiles": [
+    "pwn/搭建记录/glibc-all-in-one安装与使用.md",
+    "pwn/搭建记录/pwn工具安装问题.md",
+    "pwn/学习记录/canary绕过.md",
+    "pwn/题型总结/off by one.md",
     "pwn/题型总结/堆中house of系列漏洞成因分析.md",
     "Pasted image 20250425123709.png",
     "d5c9a906dcc374ee8dbf3dcad9e64e73.jpg",
@@ -184,7 +211,6 @@
     "Pasted image 20250424221610.png",
     "Pasted image 20250424221557.png",
     "pwn/how2heap/glibc_2.23/overlapping_chunk_attack.md",
-    "pwn/题型总结/off by one.md",
     "pwn/题型总结/uaf  2.23-2.39（未）.md",
     "pwn/搭建记录/linux命令scp将本地文件上传到服务器.md",
     "pwn/how2heap/glibc_2.23/fastbin_dup.md",
@@ -205,9 +231,6 @@
     "pwn/比赛复现/2024 HNCTF pwn.md",
     "pwn/比赛复现/2024 GEEKCTF pwn.md",
     "pwn/比赛复现/2024 BaseCTF pwn.md",
-    "pwn/比赛复现/2024 羊城杯 pwn.md",
-    "pwn/比赛复现/2024 蓝桥杯 pwn.md",
-    "pwn/比赛复现/2024 黑龙江省赛 pwn.md",
     "wp.py",
     "wp 1.py",
     "杂记",

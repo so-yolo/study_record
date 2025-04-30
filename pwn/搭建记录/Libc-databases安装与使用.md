@@ -33,6 +33,20 @@ $$
 ./get all # 下载所有分类
 
 
+#### 出错
+打开libcSearcher目录下的libcdatabase
+#删除libcdatabase里的文件
+rm -rf *
+#重新安装libcdatabase的东西
+git clone https://github.com/niklasb/libc-database
+./get ubuntu 
+#出现报错Requirements for download or update ‘ubuntu’ are not met. Please, refer to README.md for installation instructions
+#安装astd
+sudo su 
+apt-get install zstd
+./get ubuntu
+
+
 > [!NOTE] libc-database进行patchelf
 
 ```
