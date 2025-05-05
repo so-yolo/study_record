@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "pwn/题型总结/off by one.md",
+                "file": "pwn/学习记录/模糊测试Fuzz之AFL++.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "off by one"
+              "title": "模糊测试Fuzz之AFL++"
             }
           }
         ]
@@ -172,19 +172,24 @@
   },
   "active": "ac42dfcbe8479c7e",
   "lastOpenFiles": [
+    "sec_paper/模糊测试中的静态插桩技术.pdf",
+    "sec_paper/模糊测试中的静态插桩技术.pdf.crdownload",
+    "sec_paper",
+    "新建文件夹",
     "pwn/how2heap/glibc_2.23/off by null.md",
-    "Pasted image 20250501181119.png",
-    "Pasted image 20250501175007.png",
-    "Pasted image 20250501174824.png",
-    "Pasted image 20250501174633.png",
-    "Pasted image 20250501173959.png",
-    "Pasted image 20250501173827.png",
-    "Pasted image 20250501173307.png",
-    "Pasted image 20250501173300.png",
-    "Pasted image 20250501173040.png",
-    "Pasted image 20250501173002.png",
-    "pwn/题型总结/堆中house of系列漏洞成因分析.md",
+    "pwn/学习记录/模糊测试Fuzz之AFL++.md",
     "pwn/题型总结/off by one.md",
+    "d5c9a906dcc374ee8dbf3dcad9e64e73.jpg",
+    "photo/Pasted image 20250424174707.png",
+    "photo/d5c9a906dcc374ee8dbf3dcad9e64e73.jpg",
+    "photo/Pasted image 20250424174937.png",
+    "photo/Pasted image 20250424174753.png",
+    "photo/Pasted image 20250424174745.png",
+    "photo/Pasted image 20250424174733.png",
+    "photo/Pasted image 20250424174722.png",
+    "photo/Pasted image 20250501172710.png",
+    "photo/Pasted image 20250501172441.png",
+    "pwn/题型总结/堆中house of系列漏洞成因分析.md",
     "pwn/how2heap/glibc_2.23/overlapping_chunk_attack.md",
     "pwn/题型总结/uaf  2.23-2.39（未）.md",
     "pwn/搭建记录/linux命令scp将本地文件上传到服务器.md",
@@ -206,17 +211,12 @@
     "pwn/比赛复现/2024 HNCTF pwn.md",
     "pwn/比赛复现/2024 GEEKCTF pwn.md",
     "pwn/比赛复现/2024 BaseCTF pwn.md",
-    "pwn/比赛复现/2024 羊城杯 pwn.md",
-    "pwn/比赛复现/2024 蓝桥杯 pwn.md",
     "wp.py",
     "wp 1.py",
     "杂记",
     "pwn/自动化代码/stack_frame.py",
     "pwn/how2heap/glibc_2.23",
     "pwn/题型总结",
-    "pwn/自动化代码",
-    "pwn/比赛复现",
-    "pwn/搭建记录",
-    "pwn/学习记录"
+    "pwn/自动化代码"
   ]
 }
