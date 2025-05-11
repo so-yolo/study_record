@@ -61,35 +61,38 @@ static u8   be_quiet,               /* Quiet mode                        */
 /* Try to find our "fake" GNU assembler in AFL_PATH or at the location derived
    from argv[0]. If that fails, abort. */
 
+// 寻找afl-as的路径，传入的是一个无符号8位整数字符指针argv0
 static void find_as(u8* argv0) {
-
+// 返回一个指向AFL_PATH环境变量的指针，并返回给afl_path，没有则返回NULL
   u8 *afl_path = getenv("AFL_PATH");
   u8 *slash, *tmp;
 
   if (afl_path) {
-
+//   将AFL_PATH路径与"/as"拼接，赋值给tmp
     tmp = alloc_printf("%s/as", afl_path);
-
+// access函数检查tmp路径是否可执行，如果可执行，则将afl_path赋值给as_path，并释放tmp，X_OK表示可执行
     if (!access(tmp, X_OK)) {
       as_path = afl_path;
       ck_free(tmp);
       return;
     }
-
+// 释放tmp
     ck_free(tmp);
 
   }
-
+// 获取argv0路径中最后一个'/'的地址的指针
+// strrchar函数返回字符串中最后一次出现字符c的位置的指针
   slash = strrchr(argv0, '/');
 
   if (slash) {
 
     u8 *dir;
-
+// *slash置为0，是将slash指向的字符置为0，改的是存储/的地址内容，也就是/为0，改的是指针的指针，这样slash就指向了最后一个'/'之前的位置
     *slash = 0;
+    // 将argv0赋值给dir，创建一个副本，这个dir的内容中已经将/置为0了
     dir = ck_strdup(argv0);
     *slash = '/';
-
+// 将dir与"/as"拼接，赋值给tmp,这里面的0又指向了/
     tmp = alloc_printf("%s/afl-as", dir);
 
     if (!access(tmp, X_OK)) {
@@ -102,7 +105,7 @@ static void find_as(u8* argv0) {
     ck_free(dir);
 
   }
-
+// 判断AFL_PATH/as是否可执行，如果可执行，则将AFL_PATH赋值给as_path，并返回
   if (!access(AFL_PATH "/as", X_OK)) {
     as_path = AFL_PATH;
     return;
@@ -119,22 +122,40 @@ static void edit_params(u32 argc, char** argv) {
 
   u8 fortify_set = 0, asan_set = 0;
   u8 *name;
-
+// 这段代码在编译目标为 FreeBSD 操作系统和 x86_64 架构时定义了一个变量 m32_set，用于跟踪是否设置了 -m32 编译选项
 #if defined(__FreeBSD__) && defined(__x86_64__)
   u8 m32_set = 0;
 #endif
 
+/*这行代码为 cc_params 数组分配内存。cc_params 数组用于存储修改后的编译参数。
+分配的内存大小为 (argc + 128) * sizeof(u8*)，其中 argc 是命令行参数的数量，128 是一个额外的空间，用于存储可能添加的编译选项*/
   cc_params = ck_alloc((argc + 128) * sizeof(u8*));
 
+  // 没找到，则将argv0赋值给name,找到了则将name指向argv0的最后一个/的后面
   name = strrchr(argv[0], '/');
   if (!name) name = argv[0]; else name++;
 
+/*
+strncmp 函数会比较 s1 和 s2 指向的字符串的前 n 个字符。
+如果 s1 和 s2 的前 n 个字符相同，则函数返回 0。
+如果 s1 的前 n 个字符小于 s2 的前 n 个字符，则函数返回一个负数。
+如果 s1 的前 n 个字符大于 s2 的前 n 个字符，则函数返回一个正数。
+
+需要注意的是，strncmp 会在遇到空字符（'\0'）时停止比较，即使 n 还没有达到指定的值。
+这意味着 strncmp 实际上比较的是两个字符串的前 n 个字符，直到遇到空字符为止。
+*/
+// 这段代码是检测前九个字节的内容是否为 "afl-clang",如果是，则将 clang_mode 设置为 1，并将 CLANG_ENV_VAR 环境变量设置为 "1"。
   if (!strncmp(name, "afl-clang", 9)) {
 
     clang_mode = 1;
-
+// setenv的用法是：setenv(const char *name, const char *value, int overwrite),意思是
     setenv(CLANG_ENV_VAR, "1", 1);
 
+
+    /*
+    这段代码检查程序的可执行文件名是否以 "afl-clang" 开头。如果是，则设置 clang_mode 标志，并设置环境变量 CLANG_ENV_VAR。
+    然后进一步判断是否为 "afl-clang++",如果是，则将 cc_params[0] 设置为 "clang++"，否则设置为 "clang"。
+    */
     if (!strcmp(name, "afl-clang++")) {
       u8* alt_cxx = getenv("AFL_CXX");
       cc_params[0] = alt_cxx ? alt_cxx : (u8*)"clang++";
@@ -151,6 +172,7 @@ static void edit_params(u32 argc, char** argv) {
        non-zero exit codes with crash conditions when working with Java
        binaries. Meh. */
 
+// 检测是否为苹果系统,如果是，则根据不同的参数设置 cc_params[0] 的值。
 #ifdef __APPLE__
 
     if (!strcmp(name, "afl-g++")) cc_params[0] = getenv("AFL_CXX");
@@ -168,6 +190,7 @@ static void edit_params(u32 argc, char** argv) {
 
     }
 
+//如果不是apple,并且没检测到到afl-gcc,则根据不同的参数设置 cc_params[0] 的值。
 #else
 
     if (!strcmp(name, "afl-g++")) {
