@@ -30,7 +30,7 @@
   "authorName": "",
   "vaultTitle": "study_record",
   "exportPreset": "documents",
-  "openAfterExport": false,
+  "openAfterExport": true,
   "graphAttractionForce": 1,
   "graphLinkLength": 10,
   "graphRepulsionForce": 150,
@@ -43,8 +43,10 @@
   "defaultFileIcon": "lucide//file",
   "defaultFolderIcon": "lucide//folder",
   "defaultMediaIcon": "lucide//file-image",
-  "exportPath": "",
+  "exportPath": "C:\\\\Users\\20884\\Desktop",
   "filesToExport": [
-    []
+    [
+      "pwn/题型总结/off by one.md"
+    ]
   ]
 }

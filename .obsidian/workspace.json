@@ -192,46 +192,11 @@
       "webpage-html-export:Export Vault to HTML": false
     }
   },
-  "floating": {
-    "id": "aa074ce04ef862fa",
-    "type": "floating",
-    "children": [
-      {
-        "id": "686c7bec648685fd",
-        "type": "window",
-        "children": [
-          {
-            "id": "1c1b5b791dcc1891",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "bbc06331cba166a3",
-                "type": "leaf",
-                "state": {
-                  "type": "empty",
-                  "state": {},
-                  "icon": "lucide-file",
-                  "title": "新标签页"
-                }
-              }
-            ]
-          }
-        ],
-        "direction": "vertical",
-        "x": 510,
-        "y": 532,
-        "width": 900,
-        "height": 500,
-        "maximize": false,
-        "zoom": 0
-      }
-    ]
-  },
-  "active": "bbc06331cba166a3",
+  "active": "0d4c5a46c1f9f7f5",
   "lastOpenFiles": [
+    "pwn/题型总结/off by one.md",
     "pwn/搭建记录/CentOS搭建lamp中的问题解决.md",
     "pwn/搭建记录/docker容器搭建pwn环境.md",
-    "pwn/题型总结/off by one.md",
     "pwn/题型总结/house of botcake.md",
     "pwn/题型总结/堆中house of系列漏洞成因分析.md",
     "sec_paper/Glibc 内存管理 Ptmalloc2 源代码分析.pdf",
