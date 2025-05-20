@@ -190,9 +190,9 @@ strncmp 函数会比较 s1 和 s2 指向的字符串的前 n 个字符。
 
     }
 
-//如果不是apple,并且没检测到到afl-gcc,则根据不同的参数设置 cc_params[0] 的值。
-#else
 
+#else
+//如果不是apple,并且没检测到到afl-gcc,则根据不同的参数设置 cc_params[0] 的值。
     if (!strcmp(name, "afl-g++")) {
       u8* alt_cxx = getenv("AFL_CXX");
       cc_params[0] = alt_cxx ? alt_cxx : (u8*)"g++";
@@ -209,8 +209,9 @@ strncmp 函数会比较 s1 和 s2 指向的字符串的前 n 个字符。
   }
 
   while (--argc) {
+    // 遍历argv的参数
     u8* cur = *(++argv);
-
+// 如果检测的到是-B参数，判断be_quiet是否为真，如果为假，则打印警告信息
     if (!strncmp(cur, "-B", 2)) {
 
       if (!be_quiet) WARNF("-B is already set, overriding");
@@ -219,39 +220,46 @@ strncmp 函数会比较 s1 和 s2 指向的字符串的前 n 个字符。
       continue;
 
     }
-
+// 如果检测到是-intergrated-as参数，则跳过这参数
     if (!strcmp(cur, "-integrated-as")) continue;
-
+// 如果检测到-pipe参数，则跳过这参数
     if (!strcmp(cur, "-pipe")) continue;
 
 #if defined(__FreeBSD__) && defined(__x86_64__)
     if (!strcmp(cur, "-m32")) m32_set = 1;
 #endif
 
+// 如果检测到-fsanitize=address或者-fsanitize=memory，则设置asan_set为真
     if (!strcmp(cur, "-fsanitize=address") ||
         !strcmp(cur, "-fsanitize=memory")) asan_set = 1;
 
+        // 如果检测到fortify_source参数，则设置fortify_set为真
     if (strstr(cur, "FORTIFY_SOURCE")) fortify_set = 1;
 
     cc_params[cc_par_cnt++] = cur;
 
   }
 
+  // 设置cc_params[cc_par_cnt++] = "-B";并且设置cc_par_cnt++，然后设置cc_params[cc_par_cnt++] = as_path;进行参数的设置
   cc_params[cc_par_cnt++] = "-B";
   cc_params[cc_par_cnt++] = as_path;
 
+  // 如果clang_mode为真，则设置cc_params[cc_par_cnt++] = "-no-integrated-as";
   if (clang_mode)
     cc_params[cc_par_cnt++] = "-no-integrated-as";
 
+// 如果getenv("AFL_HARDEN")为真，则设置cc_params[cc_par_cnt++] = "-fstack-protector-all";并且设置cc_par_cnt++，
   if (getenv("AFL_HARDEN")) {
 
     cc_params[cc_par_cnt++] = "-fstack-protector-all";
+// 然后设置cc_params[cc_par_cnt++] = "-D_FORTIFY_SOURCE=2";
 
     if (!fortify_set)
       cc_params[cc_par_cnt++] = "-D_FORTIFY_SOURCE=2";
 
   }
 
+  // 如果asan_set为真，则就会进行覆盖AFL_USE_ASAN环境变量的值为1
   if (asan_set) {
 
     /* Pass this on to afl-as to adjust map density. */
@@ -259,30 +267,32 @@ strncmp 函数会比较 s1 和 s2 指向的字符串的前 n 个字符。
     setenv("AFL_USE_ASAN", "1", 1);
 
   } else if (getenv("AFL_USE_ASAN")) {
-
+// 如果asan_set为假，并且getenv("AFL_USE_ASAN")为真,且AFL_HARDEN为真，AFL_USE_MSAN为真，则进行报错
     if (getenv("AFL_USE_MSAN"))
       FATAL("ASAN and MSAN are mutually exclusive");
 
     if (getenv("AFL_HARDEN"))
       FATAL("ASAN and AFL_HARDEN are mutually exclusive");
 
+// 再设置其他参数      
     cc_params[cc_par_cnt++] = "-U_FORTIFY_SOURCE";
     cc_params[cc_par_cnt++] = "-fsanitize=address";
 
   } else if (getenv("AFL_USE_MSAN")) {
-
+// 如果getenv("AFL_USE_MSAN")为真，且AFL_USE_ASAN为真，AFL_HARDEN为真，则进行报错
     if (getenv("AFL_USE_ASAN"))
       FATAL("ASAN and MSAN are mutually exclusive");
 
     if (getenv("AFL_HARDEN"))
       FATAL("MSAN and AFL_HARDEN are mutually exclusive");
-
+// 再设置其他参数
     cc_params[cc_par_cnt++] = "-U_FORTIFY_SOURCE";
     cc_params[cc_par_cnt++] = "-fsanitize=memory";
 
 
   }
 
+  // 如果getnv("AFL_DONT_OPTIMIZE")为假，且检测到的freebsd系统和x64架构
   if (!getenv("AFL_DONT_OPTIMIZE")) {
 
 #if defined(__FreeBSD__) && defined(__x86_64__)
@@ -290,7 +300,7 @@ strncmp 函数会比较 s1 和 s2 指向的字符串的前 n 个字符。
     /* On 64-bit FreeBSD systems, clang -g -m32 is broken, but -m32 itself
        works OK. This has nothing to do with us, but let's avoid triggering
        that bug. */
-
+// clang_mode和m32_set有一个为假，则设置参数
     if (!clang_mode || !m32_set)
       cc_params[cc_par_cnt++] = "-g";
 
@@ -299,20 +309,20 @@ strncmp 函数会比较 s1 和 s2 指向的字符串的前 n 个字符。
       cc_params[cc_par_cnt++] = "-g";
 
 #endif
-
+// 设置其他参数
     cc_params[cc_par_cnt++] = "-O3";
     cc_params[cc_par_cnt++] = "-funroll-loops";
 
     /* Two indicators that you're building for fuzzing; one of them is
        AFL-specific, the other is shared with libfuzzer. */
-
+// 设置参数
     cc_params[cc_par_cnt++] = "-D__AFL_COMPILER=1";
     cc_params[cc_par_cnt++] = "-DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION=1";
 
   }
 
   if (getenv("AFL_NO_BUILTIN")) {
-
+// 如果getnv("AFL_NO_BUILTIN")为真，则设置参数
     cc_params[cc_par_cnt++] = "-fno-builtin-strcmp";
     cc_params[cc_par_cnt++] = "-fno-builtin-strncmp";
     cc_params[cc_par_cnt++] = "-fno-builtin-strcasecmp";
@@ -322,7 +332,7 @@ strncmp 函数会比较 s1 和 s2 指向的字符串的前 n 个字符。
     cc_params[cc_par_cnt++] = "-fno-builtin-strcasestr";
 
   }
-
+// 最后的参数设置为空
   cc_params[cc_par_cnt] = NULL;
 
 }
@@ -360,6 +370,7 @@ int main(int argc, char** argv) {
 
   edit_params(argc, argv);
 
+// execvp()执行新程序，用新程序替换当前进程映像
   execvp(cc_params[0], (char**)cc_params);
 
   FATAL("Oops, failed to execute '%s' - check your PATH", cc_params[0]);
