@@ -4,31 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "5a0c8856d5c9e51a",
+        "id": "e6c4e5c970fbce78",
         "type": "tabs",
         "children": [
           {
-            "id": "0d4c5a46c1f9f7f5",
+            "id": "f8c7f7ea5705f4bd",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pwn/搭建记录/CentOS搭建lamp中的问题解决.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "CentOS搭建lamp中的问题解决"
+              "title": "新标签页"
             }
           }
         ]
@@ -152,13 +138,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "pwn/搭建记录/可行的docker搭建pwn环境方法.md",
+                "file": "pwn/搭建记录/CentOS搭建lamp中的问题解决.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "可行的docker搭建pwn环境方法 的大纲"
+              "title": "CentOS搭建lamp中的问题解决 的大纲"
             }
           },
           {
@@ -167,8 +153,8 @@
             "state": {
               "type": "git-view",
               "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
+              "icon": "lucide-file",
+              "title": "插件不再活动"
             }
           }
         ],
@@ -176,7 +162,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 328.5
+    "width": 328.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -185,36 +172,44 @@
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
-      "command-palette:打开命令面板": false,
-      "obsidian-git:Open Git source control": false,
-      "ob2static-site:Current file - Static Site MD Export": false,
-      "ob2static-site:All files - Static Site MD Export": false,
-      "webpage-html-export:Export Vault to HTML": false
+      "command-palette:打开命令面板": false
     }
   },
-  "active": "0d4c5a46c1f9f7f5",
+  "active": "0991fae20ab6678c",
   "lastOpenFiles": [
-    "pwn/题型总结/off by one.md",
+    "pwn/how2heap/glibc_2.23/overlapping_chunk_attack.md",
+    "pwn/how2heap/glibc_2.23/off by null.md",
+    "pwn/how2heap/glibc_2.23/mmap_overlapping_attack.md",
+    "pwn/how2heap/glibc_2.23/large_bin_attack.md",
+    "pwn/how2heap/glibc_2.23/fastbin_dup_into_stack.md",
+    "pwn/how2heap/glibc_2.23/fastbin_dup_conslidate.md",
+    "pwn/how2heap/glibc_2.23/fastbin_dup.md",
+    "sec_paper/模糊测试中的静态插桩技术.pdf",
+    "二进制面经.md",
+    "未命名 1.canvas",
+    "未命名.canvas",
+    "pwn/比赛复现/2021 GFCTF pwn.md",
+    "pwn/比赛复现/2023 黑龙江省赛 pwn.md",
+    "未命名 2.canvas",
+    "pwn/题型总结/SandBox（未）.md",
+    "pwn/小知识点.md",
+    "study_record.json",
+    "pwn/攻防世界做题记录.md",
     "pwn/搭建记录/CentOS搭建lamp中的问题解决.md",
+    "pwn/学习记录/堆基础2.md",
+    "pwn/题型总结/off by one.md",
     "pwn/搭建记录/docker容器搭建pwn环境.md",
     "pwn/题型总结/house of botcake.md",
     "pwn/题型总结/堆中house of系列漏洞成因分析.md",
     "sec_paper/Glibc 内存管理 Ptmalloc2 源代码分析.pdf",
     "sec_paper/Glibc 内存管理 Ptmalloc2 源代码分析.pdf.crdownload",
     "pwn/搭建记录/可行的docker搭建pwn环境方法.md",
-    "pwn/how2heap/glibc_2.23/fastbin_dup_conslidate.md",
-    "pwn/how2heap/glibc_2.23/fastbin_dup_into_stack.md",
-    "pwn/how2heap/glibc_2.23/large_bin_attack.md",
-    "pwn/how2heap/glibc_2.23/fastbin_dup.md",
     "photo/d5c9a906dcc374ee8dbf3dcad9e64e73.jpg",
-    "二进制面经.md",
     "Pasted image 20250505221133.png",
     "pwn/学习记录/模糊测试Fuzz之AFL++.md",
-    "sec_paper/模糊测试中的静态插桩技术.pdf",
     "sec_paper/模糊测试中的静态插桩技术.pdf.crdownload",
     "sec_paper",
     "新建文件夹",
-    "pwn/how2heap/glibc_2.23/off by null.md",
     "d5c9a906dcc374ee8dbf3dcad9e64e73.jpg",
     "photo/Pasted image 20250424174707.png",
     "photo/Pasted image 20250424174937.png",
@@ -223,22 +218,12 @@
     "photo/Pasted image 20250424174733.png",
     "photo/Pasted image 20250424174722.png",
     "photo/Pasted image 20250501172710.png",
-    "pwn/how2heap/glibc_2.23/overlapping_chunk_attack.md",
     "pwn/题型总结/uaf  2.23-2.39（未）.md",
     "pwn/搭建记录/linux命令scp将本地文件上传到服务器.md",
-    "pwn/how2heap/glibc_2.23/mmap_overlapping_attack.md",
     "pwn/BUU做题记录/ROP.md",
     "pwn/BUU做题记录/environ的利用.md",
-    "pwn/BUU做题记录/栈上格式化字符串.md",
-    "pwn/比赛复现/NewStarCTF 公开赛 pwn.md",
-    "pwn/比赛复现/整数溢出.md",
-    "pwn/比赛复现/数组类.md",
-    "pwn/比赛复现/2024 XYCTF pwn.md",
-    "pwn/比赛复现/2024 NepCTF pwn.md",
-    "pwn/比赛复现/2024 LitCTF pwn.md",
     "wp.py",
     "wp 1.py",
-    "杂记",
-    "pwn/自动化代码/stack_frame.py"
+    "杂记"
   ]
 }

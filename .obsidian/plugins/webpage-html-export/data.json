@@ -1,7 +1,7 @@
 {
   "settingsVersion": "1.8.01",
   "makeOfflineCompatible": false,
-  "inlineAssets": true,
+  "inlineAssets": false,
   "includePluginCSS": "",
   "includeSvelteCSS": true,
   "titleProperty": "title",
@@ -16,20 +16,20 @@
   "allowResizingSidebars": true,
   "logLevel": "warning",
   "minifyHTML": true,
-  "makeNamesWebStyle": false,
+  "makeNamesWebStyle": true,
   "onlyExportModified": true,
   "deleteOldFiles": true,
   "addThemeToggle": true,
   "addOutline": true,
   "addFileNav": true,
-  "addSearchBar": false,
-  "addGraphView": false,
+  "addSearchBar": true,
+  "addGraphView": true,
   "addTitle": true,
   "addRSSFeed": true,
   "siteURL": "",
   "authorName": "",
   "vaultTitle": "study_record",
-  "exportPreset": "documents",
+  "exportPreset": "website",
   "openAfterExport": true,
   "graphAttractionForce": 1,
   "graphLinkLength": 10,
@@ -43,10 +43,11 @@
   "defaultFileIcon": "lucide//file",
   "defaultFolderIcon": "lucide//folder",
   "defaultMediaIcon": "lucide//file-image",
-  "exportPath": "C:\\\\Users\\20884\\Desktop",
+  "exportPath": "C:\\\\Users\\20884\\Desktop\\pwn",
   "filesToExport": [
     [
-      "pwn/题型总结/off by one.md"
+      "pwn/题型总结/off by one.md",
+      "pwn/学习记录/堆基础2.md"
     ]
   ]
 }
