@@ -5,6 +5,7 @@ docker run --privileged -it --name ubuntu16 ubuntu:16.04 /bin/bash
 ```
 apt-get update
 apt-get install -y git
+apt-get install vim -y
 ```
 
 ```

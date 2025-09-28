@@ -4,24 +4,39 @@
     "type": "split",
     "children": [
       {
-        "id": "e933bd8019556454",
+        "id": "7fc0cbcbf7f2ec92",
         "type": "tabs",
         "children": [
           {
-            "id": "9bbb0e42a94ead2d",
+            "id": "20879107e08a28fb",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "pwn/题型总结/rand与srand之随机数.md",
+                "file": "pwn/搭建记录/docker容器搭建pwn环境.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "rand与srand之随机数"
+              "title": "docker容器搭建pwn环境"
+            }
+          },
+          {
+            "id": "6044c52cd8b860b3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "pwn/搭建记录/mac'docker install pwn_env.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "mac'docker install pwn_env"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -171,8 +186,23 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9bbb0e42a94ead2d",
+  "active": "6044c52cd8b860b3",
   "lastOpenFiles": [
+    "pwn/搭建记录/docker源配置.md",
+    "pwn/搭建记录/docker容器搭建pwn环境.md",
+    "pwn/搭建记录/阿里云搭建ctf-xinetd.md",
+    "pwn/搭建记录/mac'docker install pwn_env.md",
+    "pwn/搭建记录/可行的docker搭建pwn环境方法.md",
+    "pwn/搭建记录/pwn工具安装问题.md",
+    "未命名 5.base",
+    "未命名 4.base",
+    "未命名 3.base",
+    "未命名 2.base",
+    "未命名 1.base",
+    "未命名.base",
+    "pwn/学习记录/栈迁移(-).md",
+    "待整理文件/send_and_sendline.md",
+    "pwn/题型总结/rand与srand之随机数.md",
     "pwn/搭建记录/栈帧.md",
     "截屏2025-09-26 01.53.32.png",
     "pwn/学习记录/Linux进程空间结构.md",
@@ -194,7 +224,6 @@
     "二进制面经.md",
     "Fuzzing/AFL_analyze_article/analyze_afl_as.c.md",
     "Fuzzing/AFL_analyze_article/abstract.md",
-    "Fuzzing/AFL_analyze_article/abstract",
     "photo/d5c9a906dcc374ee8dbf3dcad9e64e73.jpg",
     "photo/Pasted image 20250505221133.png",
     "photo/Pasted image 20250501181119.png",
@@ -205,21 +234,8 @@
     "photo/Pasted image 20240923214630.png",
     "photo/Pasted image 20240923214617.png",
     "pwn/比赛复现/2021 GFCTF pwn.md",
-    "杂记/基于py的端口扫描与pyinstaller包装.md",
-    "杂记/基于airtest的自动微信抢红包实现.md",
-    "pwn/how2heap/glibc_2.23/overlapping_chunk_attack.md",
-    "pwn/how2heap/glibc_2.23/off by null.md",
-    "pwn/how2heap/glibc_2.23/mmap_overlapping_attack.md",
-    "pwn/how2heap/glibc_2.23/large_bin_attack.md",
-    "pwn/how2heap/glibc_2.23/fastbin_dup_into_stack.md",
-    "pwn/how2heap/glibc_2.23/fastbin_dup_conslidate.md",
     "未命名 1.canvas",
     "未命名.canvas",
-    "未命名 2.canvas",
-    "study_record.json",
-    "sec_paper/Glibc 内存管理 Ptmalloc2 源代码分析.pdf.crdownload",
-    "sec_paper/模糊测试中的静态插桩技术.pdf.crdownload",
-    "sec_paper",
-    "新建文件夹"
+    "未命名 2.canvas"
   ]
 }
