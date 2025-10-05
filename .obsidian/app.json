@@ -9,5 +9,6 @@
   "attachmentFolderPath": "/",
   "showUnsupportedFiles": false,
   "newLinkFormat": "relative",
-  "spellcheck": false
+  "spellcheck": false,
+  "alwaysUpdateLinks": true
 }
